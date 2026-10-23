@@ -1,0 +1,18 @@
+{
+  "name": "campusplus",
+  "private": true,
+  "workspaces": [
+    "packages/shared",
+    "apps/web",
+    "apps/api"
+  ],
+  "scripts": {
+    "dev": "npm run dev:web",
+    "dev:web": "npm run dev -w apps/web",
+    "dev:api": "npm run dev -w apps/api",
+    "build": "npm run build -w packages/shared && npm run build -w apps/web && npm run build -w apps/api",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present && npm run lint:copy",
+    "lint:copy": "node scripts/lint-copy.mjs"
+  }
+}
